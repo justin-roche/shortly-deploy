@@ -3,6 +3,15 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
+
+      options: {
+        separator: ';',
+      },
+      dist: {
+        src: ['public/client/*.js', 'public/lib/*.js'],
+        dest: 'public/dist/client.js',
+      },
+
     },
 
     mochaTest: {
@@ -21,12 +30,15 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+      my_target: {
+        files: {
+          'dist/client.min.js': ['public/dist/client.js']
+        }
+      }
     },
 
     eslint: {
-      target: [
-        // Add list of files to lint here
-      ]
+      target: ['app/*.js', 'server.js','server-config.js','tests/*.js','public/*.js']
     },
 
     cssmin: {
@@ -35,10 +47,12 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: [
+          'app/*.js', 'server.js','server-config.js',
           'public/client/**/*.js',
           'public/lib/**/*.js',
         ],
         tasks: [
+          'mochaTest',
           'concat',
           'uglify'
         ]
@@ -76,7 +90,10 @@ module.exports = function(grunt) {
     'mochaTest'
   ]);
 
-  grunt.registerTask('build', [
+  grunt.registerTask('lint', ['eslint'
+  ]);
+
+  grunt.registerTask('build', ['mochaTest','eslint','concat','uglify'
   ]);
 
   grunt.registerTask('upload', function(n) {
@@ -88,7 +105,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('deploy', [
-    // add your deploy tasks here
+    'build'
   ]);
 
 
