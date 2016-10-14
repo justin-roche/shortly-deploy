@@ -57,7 +57,7 @@ module.exports = function(grunt) {
           force: true
         },
         files: {
-          src: ['app/*.js', 'app/models/*.js','server.js','server-config.js','tests/*.js','public/*.js' ,'views/*','package.json','Gruntfile.js']
+          src: ['app/*.js', 'app/models/*.js', 'server.js','server-config.js','test/*.js','public/*.js' ,'views/*','package.json','Gruntfile.js']
         }
       }
     },
