@@ -57,7 +57,7 @@ module.exports = function(grunt) {
           force: true
         },
         files: {
-          src: ['app/*.js', 'server.js','server-config.js','tests/*.js','public/*.js' ,'views/*','package.json','Gruntfile.js']
+          src: ['app/*.js', 'app/models/*.js','server.js','server-config.js','tests/*.js','public/*.js' ,'views/*','package.json','Gruntfile.js']
         }
       }
     },
@@ -70,7 +70,7 @@ module.exports = function(grunt) {
           noStatus: false
         },
         files: {
-           src: ['app/*.js', 'server.js','server-config.js','tests/*.js','public/*.js' ,'views/*','package.json','Gruntfile.js'],
+           src: ['app/*.js', 'server.js','lib/*.js','server-config.js','tests/*.js','public/*.js' ,'views/*','package.json','Gruntfile.js'],
         }
       }
     },
