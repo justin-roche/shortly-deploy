@@ -57,7 +57,7 @@ module.exports = function(grunt) {
           force: true
         },
         files: {
-          src: ['app/*.js', 'app/models/*.js', 'server.js','server-config.js','test/*.js','public/*.js' ,'views/*','package.json','Gruntfile.js']
+          src: ['app/*.js', 'app/models/*.js', 'server.js','server-config.js','test/*.js','public/*.js' ,'views/*','package.json','Gruntfile.js','README.md']
         }
       }
     },
@@ -67,10 +67,10 @@ module.exports = function(grunt) {
         options: {
           message: 'Testing',
           noVerify: true,
-          noStatus: false
+          noStatus: true
         },
         files: {
-           src: ['app/*.js', 'server.js','lib/*.js','server-config.js','tests/*.js','public/*.js' ,'views/*','package.json','Gruntfile.js'],
+           src: ['app/*.js', 'server.js','lib/*.js','server-config.js','tests/*.js','public/*.js' ,'views/*','package.json','Gruntfile.js','README.md'],
         }
       }
     },
@@ -145,8 +145,8 @@ module.exports = function(grunt) {
     
   });
 
-  grunt.registerTask('push', function(n) {
-      grunt.task.run(['gitpush']);
+  grunt.registerTask('commit-push', function(n) {
+      grunt.task.run(['gitcommit','gitpush']);
   });
 
   grunt.registerTask('deploy', function(n){
