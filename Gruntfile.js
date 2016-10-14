@@ -145,6 +145,10 @@ module.exports = function(grunt) {
     
   });
 
+  grunt.registerTask('push', function(n) {
+      grunt.task.run(['gitpush']);
+  });
+
   grunt.registerTask('deploy', function(n){
     if(grunt.option('prod')){
       grunt.task.run(['build','gitadd', 'gitcommit', 'gitpush']);//,'gitpush']);
@@ -153,6 +157,6 @@ module.exports = function(grunt) {
     }
   });
 
-
+// comment here
 
 };
