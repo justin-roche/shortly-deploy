@@ -23,7 +23,7 @@ module.exports = function(grunt) {
         separator: ';',
       },
       dist: {
-        src: ['public/client/*.js', 'public/lib/*.js'],
+        src: ['public/client/*.js'],
         dest: 'public/dist/client.js',
       },
 
@@ -93,8 +93,6 @@ module.exports = function(grunt) {
         ],
         tasks: [
           'mochaTest',
-          'concat',
-          'uglify'
         ]
       },
       /*css: {
@@ -149,7 +147,9 @@ module.exports = function(grunt) {
 
   grunt.registerTask('deploy', function(n){
     if(grunt.option('prod')){
-      grunt.task.run(['gitadd', 'gitcommit', 'gitpush']);//,'gitpush']);
+      grunt.task.run(['build','gitadd', 'gitcommit', 'gitpush']);//,'gitpush']);
+    } else {
+      grunt.task.run(['build','nodemon'])
     }
   });
 
