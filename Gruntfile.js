@@ -14,7 +14,7 @@ module.exports = function(grunt) {
     },
 
     eslint: {
-      target: ['app/*.js', 'server.js','server-config.js','tests/*.js','public/client/*.js']
+      target: ['app/*.js', 'lib/*.js','app/models/*.js','server.js','server-config.js','test/*.js','public/client/*.js']
     },
 
     concat: {
